@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+double CalRec(double, double);
+
+int main()
+{
+  double height;
+  double weight;
+
+  cout << "Enter height: " << endl;
+  cin >> height;
+  cout << "Enter width: " << endl;
+  cin >> width;
+
+  cout << "The rectangle area is : " << CalRec(height, width) << endl;
+}
+double CalRec(double height, double width)
+{
+  return height*width;
+}
