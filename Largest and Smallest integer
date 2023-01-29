@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int a(0), b(0), c(0), d(0), e(0), small(0), big(0);
+    cout << "Enter five numbers. After typing each number please press ENTER : " << endl;
+    cin >> a >> b >> c >> d >> e;
+    //biggest
+    if (a > big) {
+        big = a;
+    }
+    if (b > big) {
+        big = b;
+    }
+    if (c > big) {
+        big = c;
+    }
+    if (d > big) {
+        big = d;
+    }
+    if (e > big) {
+        big = e;
+    }
+    //smallest let's go
+    if (a<b && a<c && a<d && a<e){
+        small = a;
+    }
+    if (b<a && b<c && b<d && b<e) {
+        small = b;
+    }
+    if (c<a && c<b && c<d && c<e) {
+        small = c;
+    }
+    if (d<a && d<b && d<c && d<e ) {
+        small = d;
+    }
+    if (e<a && e<b && e<c && e<d) {
+        small = e;
+    }
+    cout << "The LARGEST number is: " << big << "." << " And the SMALLEST number is: " << small << "." << endl;
+}
