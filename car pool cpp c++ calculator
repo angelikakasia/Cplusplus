@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+
+int main(){
+    double dist, cost, mile, parking, toll;
+    cout << "Enter total miles driven per day: " << endl;
+    cin >> dist;
+    cout << "Enter cost of gas: " << endl;
+    cin >> cost;
+    cout << "Enter how many miles your car can make per gallon: " << endl;
+    cin >> mile;
+    cout << "Enter cost of the parking: " << endl;
+    cin >> parking;
+    cout << "Enter cost of the tolls: " << endl;
+    cin >> toll;
+    
+    cout << "By the carpooling you could save : " << cost * dist / mile + parking + toll << "." << endl;
+}
+
