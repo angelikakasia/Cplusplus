@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+int a, b, c, d, e;
+int findBig(int, int);
+int findSmall(int, int);
+
+int main() {
+	cout << " Enter five integers.Put spaces in between.GO: " << endl;
+	cin >> a >> b >> c >> d >> e;
+	int big = 0;
+	int small = a;
+	big = findBig(a, big);
+	big = findBig(b, big);
+	big = findBig(c, big);
+	big = findBig(d, big);
+	big = findBig(e, big);
+	small = findSmall(a, small);
+	small = findSmall(b, small);
+	small = findSmall(c, small);
+	small = findSmall(d, small);
+	small = findSmall(e, small);
+
+	cout << " The biggest is : " << big << endl;
+	cout << " The smallest is : " << small << endl;
+
+}
+int findBig(int n, int b) {
+	if (n > b) {
+		return n;
+	}
+	return b;
+}
+int findSmall(int n, int b) {
+	if (n < b) {
+		return n;
+
+	}
+	return b;
+}
