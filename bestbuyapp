@@ -1,0 +1,104 @@
+#include <iostream>
+#include<string>
+#include "BestBuy.h"
+using namespace std;
+class BestBuy
+{
+private:
+	string Storename;
+	double TotalSales = 0;
+	string Message;
+	void MakeMessage();
+public:
+	BestBuy(string);
+	void AccumSales(double);
+	void PrintSales();
+	double CalcAverage(int);
+	string getName();
+	string getMessage();
+	double getTotalSales();
+	
+};
+
+#include <iostream>
+#include "BestBuy.h"
+using namespace std;
+
+BestBuy::BestBuy(string n)
+{
+	this->Storename = n;
+}
+void BestBuy::AccumSales(double s)
+{
+	this->TotalSales += s;
+}
+double BestBuy::CalcAverage(int m)
+{
+	return this->TotalSales / m;
+}
+
+void BestBuy::MakeMessage()
+{
+	if (this->TotalSales > 10000)
+		this->Message = "Good job!  ";
+	else if (this->TotalSales > 5000)
+		this->Message = "Keep up the good work ";
+	else if (this->TotalSales > 1000)
+		this->Message = "You need to work harder ";
+	else
+		this->Message = "Close the store ";
+}
+
+string BestBuy::getName()
+{
+	return this->Storename;
+}
+
+
+double BestBuy::getTotalSales()
+{
+	return this->TotalSales;
+}
+string BestBuy::getMessage()
+{
+	return this->Message;
+}
+void BestBuy::PrintSales()
+{
+	this->MakeMessage();
+}
+
+
+#include <iostream>
+#include<string>
+#include "BestBuy.h"
+using namespace std;
+
+int main()
+{
+	string name;
+	double sales;
+	int months;
+	cout << "Best Buy Sales App " << endl;
+	cout << " ============================\n\n";
+	cout << "Enter Store Location ===> ";
+	getline(cin, name);
+	BestBuy store1(name);
+	cout << "How many months you want to enter ==> ";
+	cin >> months;
+	for (int x = 1; x <= months; x++)
+	{
+		cout << "Enter amount for month # " << x << " ===> ";
+		cin >> sales;
+		store1.AccumSales(sales);
+		cin.ignore();
+	}
+
+	store1.PrintSales();
+	cout << " \n =================== \n";
+	cout << " The Store location is ===> " << store1.getName();
+	cout << " \n The Average Sales is ===>" << store1.CalcAverage(months) << endl;
+	cout << endl;
+	cout << store1.getMessage() << endl;
+
+}
