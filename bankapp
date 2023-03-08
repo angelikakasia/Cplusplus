@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+#include "BankAccount.h";
+class BankAccount
+{
+private:
+	string name;
+	double balance;
+public:
+	BankAccount(string);
+	BankAccount(string, double);
+	void withdraw(double);
+	void deposit(double);
+	void setBalance(double);
+	string getName();
+	double getBalance();
+
+};
+#include "BankAccount.h"
+
+#include<iostream>
+using namespace std;
+BankAccount::BankAccount(string n) {
+	this->name = n;
+}
+BankAccount::BankAccount(string n, double b) {
+	this->name = n;
+	this->balance = b;
+}
+void BankAccount::withdraw(double w) {
+	if (w > 500) {
+		cout << "You can't withdraw more than 500" << endl;
+
+	}
+	if (w > balance)
+	{
+		cout << "you can't withdraw more than is in your balance" << endl;
+	}
+	else {
+
+		this->balance = this->balance - w;
+	}
+}
+void BankAccount::deposit(double d) {
+	if (d > 1000) {
+		cout << "You can't deposit more than 1000" << endl;
+	}
+	else {
+		this->balance = this->balance + d;
+	}
+}
+void BankAccount::setBalance(double b) {
+	this->balance = b;
+}
+string BankAccount::getName() {
+	return this->name;
+}
+double BankAccount::getBalance() {
+	return this->balance;
+}
+#include <iostream>
+#include "BankAccount.h"
+using namespace std;
+int main()
+{
+	string n, n1;
+	double b, d, w;
+	cout << "----------------------------------------------------- " << endl;
+	cout << "------------------ W E L C O M E ----------------- " << endl;
+	cout << "Enter the name on the bank account : " << endl;
+	cin >> n;
+	BankAccount name(n);
+	cout << "Welcome back  " << name.getName()<< endl;
+	n = name.getName();
+
+	BankAccount a1(n, 0);
+	cout << " Your balance is $0.0" << endl;
+	cout << "Set the balance in your bank account: "<< endl;
+	cin >> b;
+	a1.setBalance(b);
+	cout << "           "<<endl;
+	cout << "----------------------------------------------------- " << endl;
+	cout << "Your new balance is " << b << endl;
+	cout << "----------------------------------------------------- " << endl;
+
+	cout << "Enter how much you want to deposit : " << endl;
+	cin >> d;
+	a1.deposit(d);
+	cout << "Your balance after the deposit is " << a1.getBalance() << endl;
+	cout << "----------------------------------------------------- " << endl;
+	cout << "Enter how much you want to withdraw : " << endl;
+	cin >> w;
+	a1.withdraw(w);
+
+	cout << "Your balance after the withdraw " << a1.getBalance() << endl;
+	cout << "----------------------------------------------------- " << endl;
+	cout << "Your final balance is : " << a1.getBalance()<< endl;
+	cout << "   -----------------------                  THANK YOU FOR USING OUR BANK " << name.getName() << "               -------------------------!";
+}
