@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+	vector<int> num{ 34, 56, 7, 89, 98, 7 };
+	cout << "The size of the vector is ==> " << num.size() << endl;
+	for (int i = 0; i < num.size(); i++)
+	{
+		cout << num[i] << endl;
+	}
+	num.erase(num.begin(), num.end() - 2);
+	cout << " The size of the new vector is ==> " << num.size() << endl;
+	for (int i = 0; i < num.size(); i++)
+	{
+		cout << num[i] << endl;
+	}
+	num.push_back(100);//it means it added 100
+	cout << "The size of the new vector is ==> " << num.size() << endl;
+	for (int i = 0; i < num.size(); i++)
+	{
+		cout << num[i] << endl;
+	}
+	num.insert(num.begin() + 1, 200);
+	cout << "The size of the new vector is ==> " << num.size() << endl;
+	for (int i = 0; i < num.size(); i++)
+	{
+		cout << num[i] << endl;
+	}
+}
