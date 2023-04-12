@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    int rows;
+    int columns;
+    double tempnum;
+    vector<vector<double>>num;
+    vector<double> temp;
+    cout << "How many rows Do you want ==> ";
+    cin >>rows;
+    cout << "How many columns Do you want ==> ";
+    cin >> columns;
+    for (int r = 0; r < rows; r++) {
+    
+        for (int c = 0; c < columns; c++) {
+        
+            cout << endl;
+            cout << "Enter row # " << (r + 1) << " column # " << (c + 1) << " ==> ";
+            cin >> tempnum;
+            temp.push_back(tempnum);
+        }
+        num.push_back(temp);
+        temp.clear();
+    }
+    cout << "\nHere your 2D Vector \n";
+    for (int r = 0; r < rows; r++) {
+    
+        for (int c = 0; c < columns; c++) {
+        
+            cout << num[r][c] << "\t";
+        }
+        cout << endl << endl;
+    }
+}
