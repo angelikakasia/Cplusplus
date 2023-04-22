@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+using namespace std;
+int main()
+{
+    string name;
+    int namelength = 0;
+    double grade = 0;
+    double TotalGr = 0;
+    vector<string> studentnames;
+    
+    vector<vector<double>> grades1;
+
+    //double grades[5][6];
+    for (int r = 0; r < 5; r++)
+    {
+        vector<double>temp;
+        double TotalGr = 0;
+        cout << " Enter student's name :  ";
+        getline(cin, name);
+
+        studentnames.push_back(name);
+
+        if (name.size() > namelength)
+        {
+            namelength = name.size();
+        }
+        for (int c = 0; c < 5; c++)
+        {
+            cout << " " << studentnames[r] << " student # " << (r + 1) << " grade number #  " << (c + 1) << " : ";
+            cin >> grade;
+
+            temp.push_back(grade);
+
+            TotalGr += grade;
+        }
+        cin.get();
+        temp.push_back(TotalGr / 5);
+        grades1.push_back(temp);
+        cout << endl;
+
+    }
+    cout << setw(1 + namelength) << "\t";
+    for (int r = 0;r < 5; r++)
+    {
+        cout << "Grade" << (r + 1) << "\t";
+    }
+    cout << "Average" << endl;
+    for (int r = 0; r < 5; r++)
+    {
+        cout << studentnames[r] << setw(1 + namelength - studentnames[r].size()) << "\t";
+        cout << setprecision(2) << fixed;
+        for (int c = 0; c < 5; c++)
+        {
+            cout.width(6);
+            cout << right << grades1[r][c] << "\t";
+          
+        }
+        cout << grades1[r][5] << endl;
+    }
+}
