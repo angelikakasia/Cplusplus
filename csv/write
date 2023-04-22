@@ -1,0 +1,90 @@
+#include <iostream> //part1
+#include <fstream>
+#include <string>
+using namespace std;
+class FileCreator
+{
+private :
+	ofstream MyFile;
+public:
+	FileCreator(string);
+	void WriteFile(string, double, double, double, double, double);
+	void WriteHeader();
+	void CloseFile();
+
+};
+//part2
+#include "FileCreator.h"
+
+FileCreator::FileCreator(std::string a)
+{
+	MyFile.open(a +".csv");
+}
+void FileCreator::WriteFile(string StoreName, double JanSales, double FebSales, double MarSales, double AprSales, double TotaSales)
+{
+	MyFile << StoreName << "," << JanSales << "," << FebSales << "," << MarSales << "," << AprSales << "," << TotaSales << endl;
+}
+void FileCreator::WriteHeader()
+{
+	MyFile << "Store,January,February,March,April,Total"<<endl;
+}
+void FileCreator::CloseFile()
+{
+	MyFile.close();
+}
+//part3
+
+#include "FileCreator.h"
+
+int main()
+{
+	string StoreName;
+	string FileName;
+	double JanSales;
+	double FebSales;
+	double MarSales;
+	double AprSales;
+	double TotaSales;
+	cout << " ==================================================== " << endl;
+	cout << " ============= Second Quarter Sales App ============= "<< endl;
+	cout << " ==================================================== " << endl;
+	cout << endl;
+	
+
+	cout << "How do you want to name your file? ";
+	getline(cin,FileName);
+	cin.ignore();
+	cout << endl;
+	FileCreator a1(FileName);// "string part" FileName is already initialized
+	a1.WriteHeader();
+	for (int r = 0; r < 5; r++)
+	{
+		cout << endl;
+		cout << "Enter the store # " << (r + 1) << " location ==> "; 
+		//cin.ignore();
+		getline(cin, StoreName);
+		cin.ignore();
+		cout << "Enter how many sales in January for store # " << (r + 1) << " ==> ";
+		cin >> JanSales;
+		cin.ignore();
+		cout << "Enter how many sales in February for store # " << (r + 1) << " ==> ";
+		cin >> FebSales;
+		cin.ignore();
+		cout << "Enter how many sales in March for store # " << (r + 1) << " ==> ";
+		cin >> MarSales;
+		cin.ignore();
+		cout << "Enter how many sales in April for store # " << (r + 1) << " ==> ";
+		cin >> AprSales;
+		cin.ignore();
+		TotaSales = JanSales + FebSales + MarSales + AprSales;
+		a1.WriteFile(StoreName, JanSales, FebSales, MarSales, AprSales, TotaSales);
+	}
+	a1.CloseFile();
+	cout << endl;
+	cout << " ==========================*========================= " << endl;
+	cout << " =================*================*================= " << endl;
+	cout << " ================* CSV file is done *================ " << endl;
+	cout << " =================*================*================= " << endl;
+	cout << " ==========================*==============Thank You== " << endl;
+
+}
